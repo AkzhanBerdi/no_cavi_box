@@ -29,6 +29,7 @@ w2 = "Переменная облачность"
 w3 = "Снег"
 w4 = "Дождь"
 w5 = "Переменная облачность с кратковременными"
+w6 = "
 
 #date
 import datetime
@@ -120,7 +121,8 @@ def alert():
             else:
                 bot.send_message(chat_id=-1001693361742,text=f"Дождь шёл {hours} час, выходя в горы одевайтесь потеплее!") 
                 hours = 0  
-
+    if w6 in weather:
+        bot.send_message(chat_id=-1001693361742,text="На чиме пасмурно")
 while(True):
     alert()
     time.sleep(3600)
