@@ -87,7 +87,7 @@ def alert():
         writer = csv.writer(f)
         writer.writerow(data)
     #pyautogui.hotkey('f5')
-    print(df)
+    #print(df)
     
     if w4 in weather:
         hours += 1
