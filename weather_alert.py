@@ -9,8 +9,8 @@ import datetime
 import pyautogui
 import telebot
 
-echo "DISPLAY=:0" >> ~/.bashrc
-source ~/.bashrc
+os.environ['DISPLAY'] = ':0'
+os.environ['XAUTHORITY']='/run/user/1000/gdm/Xauthority'
 
 token = "5739207168:AAFNcX2_M_oJVQs-RcEaLGLd3L1dMuAPW8s"
 bot = telebot.TeleBot(token)
