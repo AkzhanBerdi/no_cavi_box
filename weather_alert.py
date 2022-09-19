@@ -46,8 +46,8 @@ with open('powderbot.csv', 'w', newline='', encoding='UTF8') as f:
     writer.writerow(data)
 
 #Read CSV
-import pandas as pd
-df = pd.read_csv(r'C:\Users\Admin\powderbot.csv')
+#import pandas as pd
+#df = pd.read_csv(r'C:\Users\Admin\powderbot.csv')
 
 #CSV append
 with open('powderbot.csv', 'a+', newline='', encoding='UTF8') as f:
