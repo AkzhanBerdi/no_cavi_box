@@ -6,11 +6,8 @@ import requests
 import smtplib
 import time
 import datetime
-import pyautogui
+#import pyautogui
 import telebot
-
-os.environ['DISPLAY'] = ':0'
-os.environ['XAUTHORITY']='/run/user/1000/gdm/Xauthority'
 
 token = "5739207168:AAFNcX2_M_oJVQs-RcEaLGLd3L1dMuAPW8s"
 bot = telebot.TeleBot(token)
@@ -89,7 +86,7 @@ def alert():
     with open('powderbot.csv', 'a+', newline='', encoding='UTF8') as f:
         writer = csv.writer(f)
         writer.writerow(data)
-    pyautogui.hotkey('f5')
+    #pyautogui.hotkey('f5')
     print(df)
     
     if w4 in weather:
