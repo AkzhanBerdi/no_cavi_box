@@ -9,7 +9,8 @@ import datetime
 import pyautogui
 import telebot
 
-export DISPLAY = :0
+echo "DISPLAY=:0" >> ~/.bashrc
+source ~/.bashrc
 
 token = "5739207168:AAFNcX2_M_oJVQs-RcEaLGLd3L1dMuAPW8s"
 bot = telebot.TeleBot(token)
