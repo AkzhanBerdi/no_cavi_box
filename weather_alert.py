@@ -122,11 +122,23 @@ def alert():
                 bot.send_message(chat_id=-1001693361742,text=f"Дождь шёл {hours} час, выходя в горы одевайтесь потеплее!") 
                 hours = 0  
     if w1 in weather:
-        bot.send_message(chat_id=-1001693361742,text="На чиме ясно")
+        hours += 1
+        if w1 in weather and hours == 1:
+            bot.send_message(chat_id=-1001693361742,text="На чиме ясно")
+            if w1 not in weather:
+                hours = 0
     if w2 in weather:
-        bot.send_message(chat_id=-1001693361742,text="На чиме облачно")
+        hours += 1
+        if w2 in weather and hours == 1:
+            bot.send_message(chat_id=-1001693361742,text="На чиме облачно")
+            if w2 not in weather:
+                hours = 0
     if w6 in weather:
-        bot.send_message(chat_id=-1001693361742,text="На чиме пасмурно")
+        hours += 1
+        if w6 in weather and hours ==1:
+            bot.send_message(chat_id=-1001693361742,text="На чиме пасмурно")
+            if w6 not in weather:
+                hours = 0
 while(True):
     alert()
     time.sleep(3600)
