@@ -28,6 +28,7 @@ w1 = "Ясно"
 w2 = "Переменная облачность"
 w3 = "Снег"
 w4 = "Дождь"
+w41 = "Облачно, с дождем"
 w5 = "Переменная облачность с кратковременными"
 w6 = "Пасмурно"
 
@@ -94,6 +95,17 @@ def alert():
         if w4 in weather and hours == 1:
             bot.send_message(chat_id=-1001693361742,text="Привет люди! На чиме идёт дождь, а значит зонтик не помешает...")
             if w4 not in weather and hours == 2 or hours == 3 or hours == 4:
+                bot.send_message(chat_id=-1001693361742,text=f"Дождь шёл {hours} часа, погода улучшилась")
+                hours = 0                
+            else:
+                bot.send_message(chat_id=-1001693361742,text=f"Дождь шёл {hours} часов! На улице прохладно, одевайтесь теплее") 
+                hours = 0
+    
+        if w41 in weather:
+        hours += 1
+        if w41 in weather and hours == 1:
+            bot.send_message(chat_id=-1001693361742,text="На чиме облачно с дождем, одевайтесь теплее...")
+            if w41 not in weather and hours == 2 or hours == 3 or hours == 4:
                 bot.send_message(chat_id=-1001693361742,text=f"Дождь шёл {hours} часа, погода улучшилась")
                 hours = 0                
             else:
