@@ -103,14 +103,14 @@ def alert():
     
     if w41 in weather:
         hours += 1
-    if w41 in weather and hours == 1:
-        bot.send_message(chat_id=-1001693361742,text="На чиме облачно с дождем, одевайтесь теплее...")
-    if w41 not in weather and hours == 2 or hours == 3 or hours == 4:
-        bot.send_message(chat_id=-1001693361742,text=f"Дождь шёл {hours} часа, погода улучшилась")
-        hours = 0                
-    else:
-        bot.send_message(chat_id=-1001693361742,text=f"Дождь шёл {hours} часов! На улице прохладно, одевайтесь теплее") 
-        hours = 0
+        if w41 in weather and hours == 1:
+            bot.send_message(chat_id=-1001693361742,text="На чиме облачно с дождем, одевайтесь теплее...")
+            if w41 not in weather and hours == 1 or hours == 2 or hours == 3 or hours == 4:
+                bot.send_message(chat_id=-1001693361742,text=f"Дождь шёл {hours} часа, погода улучшилась")
+                hours = 0                
+            else:
+                bot.send_message(chat_id=-1001693361742,text=f"Дождь шёл {hours} часов! На улице прохладно, одевайтесь теплее") 
+                hours = 0
     
     if w3 in weather:
         hours += 1
