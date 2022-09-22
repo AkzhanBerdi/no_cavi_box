@@ -35,8 +35,8 @@ today = datetime.date.today()
 
 #Create CSV command
 import csv
-header = ['weather','date','time']
-data = [weather,today,tik_tok]
+header = ['weather','date']
+data = [weather,today]
 with open('powderbot.csv', 'w', newline='', encoding='UTF8') as f:
     writer = csv.writer(f)
     writer.writerow(header)
