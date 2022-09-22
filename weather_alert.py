@@ -91,21 +91,35 @@ def alert():
     #print(df)
     
     if w4 in weather:
-        bot.send_message(chat_id=-1001693361742,text="Привет люди! На чиме идёт дождь, а значит зонтик не помешает...")    
+        bot.send_message(chat_id=-1001693361742,text="Привет люди! На чиме идёт дождь, а значит зонтик не помешает...")
+        while(True):
+            continue
     elif w41 in weather:
             bot.send_message(chat_id=-1001693361742,text="На чиме облачно с дождем, одевайтесь теплее...")
+            while(True):
+                continue
     elif w3 in weather:
-            bot.send_message(chat_id=-1001693361742,text="Ура! На чиме идёт снег!") 
+            bot.send_message(chat_id=-1001693361742,text="Ура! На чиме идёт снег!")
+            while(True):
+                continue
     elif w5 in weather:
             bot.send_message(chat_id=-1001693361742,text="На чиме кратковременные дожди, возьмите зонтик!")
+            while(True):
+                continue
     elif w1 in weather:
-            bot.send_message(chat_id=-1001693361742,text="На чиме ясно")   
+            bot.send_message(chat_id=-1001693361742,text="На чиме ясно")
+            while(True):
+                continue
     elif w2 in weather:
             bot.send_message(chat_id=-1001693361742,text="На чиме облачно")
+            while(True):
+                continue
     elif w1 in weather:
             bot.send_message(chat_id=-1001693361742,text="На чиме пасмурно")
+            while(True):
+                continue
     else:
         bot.send_message(chat_id=-1001693361742,text="Обнаружена неизвестная погода")
 while(True):
     alert()
-    time.sleep(1800)
+    time.sleep(300)
