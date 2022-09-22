@@ -107,8 +107,11 @@ def alert():
     elif:
         w2 in weather:
             bot.send_message(chat_id=-1001693361742,text="На чиме облачно")
+    elif:
+        w1 in weather:
+            bot.send_message(chat_id=-1001693361742,text="На чиме пасмурно")
     else:
-        bot.send_message(chat_id=-1001693361742,text="На чиме пасмурно")
+        bot.send_message(chat_id=-1001693361742,text="Обнаружена неизвестная погода")
 while(True):
     alert()
     time.sleep(3600)
