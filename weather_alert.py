@@ -91,66 +91,24 @@ def alert():
     #print(df)
     
     if w4 in weather:
-        hours += 1
-        if hours in range(2):
-            bot.send_message(chat_id=-1001693361742,text="Привет люди! На чиме идёт дождь, а значит зонтик не помешает...")
-            if w4 not in weather and hours in range(2,4):
-                bot.send_message(chat_id=-1001693361742,text=f"Дождь шёл {hours} часа, погода улучшилась")
-                hours = 0
-                if w4 not in weather and hours in range(5,100):
-                    bot.send_message(chat_id=-1001693361742,text=f"Дождь шёл {hours} часов! На улице прохладно, одевайтесь теплее") 
-                    hours = 0
-    
-    if w41 in weather:
-        hours += 1
-        if w41 in weather and hours == 1:
+        bot.send_message(chat_id=-1001693361742,text="Привет люди! На чиме идёт дождь, а значит зонтик не помешает...")    
+    elif:
+        w41 in weather:
             bot.send_message(chat_id=-1001693361742,text="На чиме облачно с дождем, одевайтесь теплее...")
-            if w41 not in weather and hours == 1 or hours == 2 or hours == 3 or hours == 4:
-                bot.send_message(chat_id=-1001693361742,text=f"Дождь шёл {hours} часа, погода улучшилась")
-                hours = 0                
-            else:
-                bot.send_message(chat_id=-1001693361742,text=f"Дождь шёл {hours} часов! На улице прохладно, одевайтесь теплее") 
-                hours = 0
-    
-    if w3 in weather:
-        hours += 1
-        if w3 in weather and hours == 1:
+    elif:
+        w3 in weather:
             bot.send_message(chat_id=-1001693361742,text="Ура! На чиме идёт снег!") 
-            if w3 not in weather and hours == 2 or hours == 3 or hours == 4:
-                bot.send_message(chat_id=-1001693361742,text=f"Cнег шёл {hours} часа! Пока что не плохо...")
-                hours = 0
-            else:
-                bot.send_message(chat_id=-1001693361742,text=f"Снег шёл {hours} часов! Ждём открытия сезона ^^)") 
-                hours = 0
-    
-    if w5 in weather:
-        hours += 1
-        if w5 in weather and hours == 1:
+    elif:
+        w5 in weather:
             bot.send_message(chat_id=-1001693361742,text="На чиме кратковременные дожди, возьмите зонтик!")
-            if w5 not in weather and hours == 2 or hours == 3 or hours == 4:
-                bot.send_message(chat_id=-1001693361742,text=f"Дождь шёл {hours} часа! Согрейтесь чашечкой чая ...")
-                hours = 0
-            else:
-                bot.send_message(chat_id=-1001693361742,text=f"Дождь шёл {hours} час, выходя в горы одевайтесь потеплее!") 
-                hours = 0  
-    if w1 in weather:
-        hours += 1
-        if w1 in weather and hours == 1:
-            bot.send_message(chat_id=-1001693361742,text="На чиме ясно")
-            if w1 not in weather:
-                hours = 0
-    if w2 in weather:
-        hours += 1
-        if w2 in weather and hours == 1:
+    elif:
+        w1 in weather:
+            bot.send_message(chat_id=-1001693361742,text="На чиме ясно")   
+    elif:
+        w2 in weather:
             bot.send_message(chat_id=-1001693361742,text="На чиме облачно")
-            if w2 not in weather:
-                hours = 0
-    if w6 in weather:
-        hours += 1
-        if w6 in weather and hours ==1:
-            bot.send_message(chat_id=-1001693361742,text="На чиме пасмурно")
-            if w6 not in weather:
-                hours = 0
+    else:
+        bot.send_message(chat_id=-1001693361742,text="На чиме пасмурно")
 while(True):
     alert()
     time.sleep(3600)
