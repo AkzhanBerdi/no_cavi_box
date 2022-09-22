@@ -92,23 +92,17 @@ def alert():
     
     if w4 in weather:
         bot.send_message(chat_id=-1001693361742,text="Привет люди! На чиме идёт дождь, а значит зонтик не помешает...")    
-    elif:
-        w41 in weather:
+    elif w41 in weather:
             bot.send_message(chat_id=-1001693361742,text="На чиме облачно с дождем, одевайтесь теплее...")
-    elif:
-        w3 in weather:
+    elif w3 in weather:
             bot.send_message(chat_id=-1001693361742,text="Ура! На чиме идёт снег!") 
-    elif:
-        w5 in weather:
+    elif w5 in weather:
             bot.send_message(chat_id=-1001693361742,text="На чиме кратковременные дожди, возьмите зонтик!")
-    elif:
-        w1 in weather:
+    elif w1 in weather:
             bot.send_message(chat_id=-1001693361742,text="На чиме ясно")   
-    elif:
-        w2 in weather:
+    elif w2 in weather:
             bot.send_message(chat_id=-1001693361742,text="На чиме облачно")
-    elif:
-        w1 in weather:
+    elif w1 in weather:
             bot.send_message(chat_id=-1001693361742,text="На чиме пасмурно")
     else:
         bot.send_message(chat_id=-1001693361742,text="Обнаружена неизвестная погода")
