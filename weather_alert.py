@@ -108,4 +108,4 @@ def alert():
         bot.send_message(chat_id=-1001693361742,text="Обнаружена неизвестная погода")
 while(True):
     alert()
-    time.sleep(3600)
+    time.sleep(1800)
