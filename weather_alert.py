@@ -75,7 +75,7 @@ def alert():
             continue
         finish = time.time()
         total_time = finish - start
-        bot.send_message(chat_id=-1001693361742,text="Дождь закончился, продолжительность - ", total_time)
+        bot.send_message(chat_id=-1001693361742,text="Дождь закончился, продолжительность - ", total_time,)
     elif w41 in weather:
         bot.send_message(chat_id=-1001693361742,text="На чиме облачно с дождем, одевайтесь теплее...")
         start = time.time()
@@ -83,7 +83,7 @@ def alert():
             continue
         finish = time.time()
         total_time = finish - start
-        bot.send_message(chat_id=-1001693361742,text="Дождь закончился, продолжительность - ", total_time)
+        bot.send_message(chat_id=-1001693361742,text="Дождь закончился, продолжительность - ", total_time,)
     elif w3 in weather:
         bot.send_message(chat_id=-1001693361742,text="Ура! На чиме идёт снег!")
         start = time.time()
@@ -91,7 +91,7 @@ def alert():
             continue
         finish = time.time()
         total_time = finish - start
-        bot.send_message(chat_id=-1001693361742,text="Снег закончился, продолжительность - ", total_time)
+        bot.send_message(chat_id=-1001693361742,text="Снег закончился, продолжительность - ", total_time,)
     elif w5 in weather:
         bot.send_message(chat_id=-1001693361742,text="На чиме кратковременные дожди, возьмите зонтик!")
         start = time.time()
@@ -99,7 +99,7 @@ def alert():
             continue
         finish = time.time()
         total_time = finish - start
-        bot.send_message(chat_id=-1001693361742,text="Дождь закончился, продолжительность - ", total_time)
+        bot.send_message(chat_id=-1001693361742,text="Дождь закончился, продолжительность - ", total_time,)
     elif w1 in weather:
         bot.send_message(chat_id=-1001693361742,text="На чиме прояснилось")
         while(True):
