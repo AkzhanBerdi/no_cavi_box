@@ -70,50 +70,21 @@ def alert():
     
     if w4 in weather:
         bot.send_message(chat_id=-1001693361742,text="Привет люди! На чиме идёт дождь, а значит зонтик не помешает...")
-        start = time.time()
-        while(True):
-            continue
-        finish = time.time()
-        total_time = finish - start
-        bot.send_message(chat_id=-1001693361742,text=f"Дождь закончился, продолжительность - {total_time}")
     elif w41 in weather:
         bot.send_message(chat_id=-1001693361742,text="На чиме облачно с дождем, одевайтесь теплее...")
-        start = time.time()
-        while(True):
-            continue
-        finish = time.time()
-        total_time = finish - start
-        bot.send_message(chat_id=-1001693361742,text=f"Дождь закончился, продолжительность - {total_time}")
     elif w3 in weather:
         bot.send_message(chat_id=-1001693361742,text="Ура! На чиме идёт снег!")
-        start = time.time()
-        while(True):
-            continue
-        finish = time.time()
-        total_time = finish - start
-        bot.send_message(chat_id=-1001693361742,text=f"Снег закончился, продолжительность - {total_time}")
     elif w5 in weather:
         bot.send_message(chat_id=-1001693361742,text="На чиме кратковременные дожди, возьмите зонтик!")
-        start = time.time()
-        while(True):
-            continue
-        finish = time.time()
-        total_time = finish - start
-        bot.send_message(chat_id=-1001693361742,text=f"Дождь закончился, продолжительность - {total_time}")
     elif w1 in weather:
         bot.send_message(chat_id=-1001693361742,text="На чиме прояснилось")
-        while(True):
-            continue
     elif w2 in weather:
         bot.send_message(chat_id=-1001693361742,text="На чиме облачно")
-        while(True):
-            continue
     elif w1 in weather:
         bot.send_message(chat_id=-1001693361742,text="На чиме пасмурно")
-        while(True):
-            continue
     else:
         bot.send_message(chat_id=-1001693361742,text="Обнаружена неопознанная погода, добавьте в базу данных")
+        
 while(True):
     alert()
     time.sleep(600)
