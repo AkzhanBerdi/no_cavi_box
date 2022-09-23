@@ -89,8 +89,6 @@ def alert():
     while w1 in weather:
         timer = True
         st = time.time()
-        while timer == True:
-            bot.send_message(chat_id=-1001693361742,text="Обнаружена ясная погода, запускаю таймер")
     timer = False
     et = time.time()
     elapsed_time = et - st
