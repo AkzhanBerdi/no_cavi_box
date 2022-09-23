@@ -87,4 +87,4 @@ def alert():
         
 while(True):
     alert()
-    time.sleep(600)
+    time.sleep(3600)
