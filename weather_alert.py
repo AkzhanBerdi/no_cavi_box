@@ -85,10 +85,7 @@ def alert():
    # else:
     #    bot.send_message(chat_id=-1001693361742,text="Обнаружена неопознанная погода, добавьте в базу данных")
         
-while(True):
-    alert()
-    time.sleep(3600)
-    
+        
     if w1 in weather:
         timer = True
         st = time.time()
@@ -98,4 +95,9 @@ while(True):
         timer = False
         et = time.time()
         elapsed_time = et - st
-        print(f"Снег закончился, продолжительность осадков: {elapsed_time}")
+        print(f"Снег закончился, продолжительность осадков: {elapsed_time}")    
+while(True):
+    alert()
+    time.sleep(3600)
+    
+
