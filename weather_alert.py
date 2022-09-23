@@ -89,7 +89,7 @@ while(True):
     alert()
     time.sleep(3600)
     
-    if w5 in weather:
+    if w1 in weather:
         timer = True
         st = time.time()
         while timer == True:
