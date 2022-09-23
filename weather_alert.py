@@ -68,23 +68,34 @@ def alert():
         writer = csv.writer(f)
         writer.writerow(data)
     
-    if w4 in weather:
-        bot.send_message(chat_id=-1001693361742,text="Привет люди! На чиме идёт дождь, а значит зонтик не помешает...")
-    elif w41 in weather:
-        bot.send_message(chat_id=-1001693361742,text="На чиме облачно с дождем, одевайтесь теплее...")
-    elif w3 in weather:
-        bot.send_message(chat_id=-1001693361742,text="Ура! На чиме идёт снег!")
-    elif w5 in weather:
-        bot.send_message(chat_id=-1001693361742,text="На чиме кратковременные дожди, возьмите зонтик!")
-    elif w1 in weather:
-        bot.send_message(chat_id=-1001693361742,text="На чиме прояснилось")
-    elif w2 in weather:
-        bot.send_message(chat_id=-1001693361742,text="На чиме облачно")
-    elif w1 in weather:
-        bot.send_message(chat_id=-1001693361742,text="На чиме пасмурно")
-    else:
-        bot.send_message(chat_id=-1001693361742,text="Обнаружена неопознанная погода, добавьте в базу данных")
+    #if w4 in weather:
+     #   bot.send_message(chat_id=-1001693361742,text="Привет люди! На чиме идёт дождь, а значит зонтик не помешает...")
+    #elif w41 in weather:
+     #   bot.send_message(chat_id=-1001693361742,text="На чиме облачно с дождем, одевайтесь теплее...")
+    #elif w3 in weather:
+    #    bot.send_message(chat_id=-1001693361742,text="Ура! На чиме идёт снег!")
+    #elif w5 in weather:
+     #   bot.send_message(chat_id=-1001693361742,text="На чиме кратковременные дожди, возьмите зонтик!")
+    #elif w1 in weather:
+    #    bot.send_message(chat_id=-1001693361742,text="На чиме прояснилось")
+    #elif w2 in weather:
+#        bot.send_message(chat_id=-1001693361742,text="На чиме облачно")
+ #   elif w1 in weather:
+  #      bot.send_message(chat_id=-1001693361742,text="На чиме пасмурно")
+   # else:
+    #    bot.send_message(chat_id=-1001693361742,text="Обнаружена неопознанная погода, добавьте в базу данных")
         
 while(True):
     alert()
     time.sleep(3600)
+    
+    if w5 in weather:
+        timer = True
+        st = time.time()
+        while timer == True:
+            print("На чиме дождь!")
+    else:
+        timer = False
+        et = time.time()
+        elapsed_time = et - st
+        print(f"Снег закончился, продолжительность осадков: {elapsed_time}")
