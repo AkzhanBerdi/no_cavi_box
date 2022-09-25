@@ -46,7 +46,7 @@ with open('powderbot.csv', 'w', newline='', encoding='UTF8') as f:
 with open('powderbot.csv', 'a+', newline='', encoding='UTF8') as f:
     writer = csv.writer(f)
     writer.writerow(data)
-
+    
 #Hourly report function
 def alert(): 
     URL = "https://www.meteoblue.com/ru/%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0/%D1%81%D0%B5%D0%B3%D0%BE%D0%B4%D0%BD%D1%8F/shymbulak-mountain-resort_%d0%9a%d0%b0%d0%b7%d0%b0%d1%85%d1%81%d1%82%d0%b0%d0%bd_11496678"
@@ -68,32 +68,35 @@ def alert():
         writer = csv.writer(f)
         writer.writerow(data)
     
-    #if w4 in weather:
-     #   bot.send_message(chat_id=-1001693361742,text="Привет люди! На чиме идёт дождь, а значит зонтик не помешает...")
-    #elif w41 in weather:
-     #   bot.send_message(chat_id=-1001693361742,text="На чиме облачно с дождем, одевайтесь теплее...")
-    #elif w3 in weather:
-    #    bot.send_message(chat_id=-1001693361742,text="Ура! На чиме идёт снег!")
-    #elif w5 in weather:
-     #   bot.send_message(chat_id=-1001693361742,text="На чиме кратковременные дожди, возьмите зонтик!")
-    #elif w1 in weather:
-    #    bot.send_message(chat_id=-1001693361742,text="На чиме прояснилось")
-    #elif w2 in weather:
-#        bot.send_message(chat_id=-1001693361742,text="На чиме облачно")
- #   elif w1 in weather:
-  #      bot.send_message(chat_id=-1001693361742,text="На чиме пасмурно")
-   # else:
-    #    bot.send_message(chat_id=-1001693361742,text="Обнаружена неопознанная погода, добавьте в базу данных")
-        
-        
-    if w1 in weather:
-        timer = True
-        st = time.time()
+    if w4 in weather:
+         bot.send_message(chat_id=-1001693361742,text="Привет люди! На чиме идёт дождь, а значит зонтик не помешает...")
+    elif w41 in weather:
+         bot.send_message(chat_id=-1001693361742,text="На чиме облачно с дождем, одевайтесь теплее...")
+    elif w3 in weather:
+        bot.send_message(chat_id=-1001693361742,text="Ура! На чиме идёт снег!")
+    elif w5 in weather:
+        bot.send_message(chat_id=-1001693361742,text="На чиме кратковременные дожди, возьмите зонтик!")
+    elif w1 in weather:
+        bot.send_message(chat_id=-1001693361742,text="На чиме прояснилось")
+    elif w2 in weather:
+        bot.send_message(chat_id=-1001693361742,text="На чиме облачно")
+    elif w1 in weather:
+        bot.send_message(chat_id=-1001693361742,text="На чиме пасмурно")
     else:
-        timer = False
-        et = time.time()
-        elapsed_time = et - st
-        bot.send_message(chat_id=-1001693361742,text=f"Снег закончился, продолжительность: {elapsed_time}")   
+        bot.send_message(chat_id=-1001693361742,text="Обнаружена неопознанная погода, добавьте в базу данных")
+         
+def hours():
+    hours = 0
+    if w5 in weather:
+        hours += 1
+        bot.send_message(chat_id=-1001693361742,text=f"дождь продолжается, уже льёт {hours} час")
+        if w5 in weather and hours in range(3,5):
+            bot.send_message(chat_id=-1001693361742,text=f"дождь продолжается {hours} часа")
+            if w5 in weather and hours in range(6,100):
+                bot.send_message(chat_id=-1001693361742,text=f"дождь продолжается {hours} часов")
+            else:
+                bot.send_message(chat_id=-1001693361742,text=f"дождь закончился, продолжался {hours} часов")
 while(True):
     alert()
+    hours()
     time.sleep(3600)
