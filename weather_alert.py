@@ -51,7 +51,7 @@ with open('powderbot.csv', 'w', newline='', encoding='UTF8') as f:
   #  writer.writerow(data)
 
 #Hourly report function
-def alert(chat_id, text_statuses, past_status, url): 
+def alert(chat_id, text_statuses, past_status, url, past_time): 
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"}
     page = requests.get(URL,headers=headers)
     soup1 = BeautifulSoup(page.content,"html.parser")
@@ -73,9 +73,9 @@ def alert(chat_id, text_statuses, past_status, url):
     for w_status, text in text_statuses.items():
         if w_status in weather:
             if w_status != past_status:
-                bot.send_message(chat_id=chat_id, text=text])
-    
-    return w_status
+                bot.send_message(chat_id=chat_id, text=text)
+                
+    return w_status, current_time
     
             
 def hours(chat_id, weather_status):
@@ -94,9 +94,10 @@ def hours(chat_id, weather_status):
 
 
 while(True):
-    past_weather_status = alert(
+    past_weather_status, past_time = alert(
         chat_id=CHATBOT_ID, 
         text_statuses=TEXT_STATUSES, 
         past_status=past_weather_status,
-        url=URL)
+        url=URL,
+        past_time=past_time)
     time.sleep(60)
