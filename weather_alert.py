@@ -20,36 +20,38 @@ soup2 = BeautifulSoup(soup1.prettify(),"html.parser")
 weather = soup2.find(id='header').get_text()
 weather = " ".join(weather.split())[106:]
 
-#weather conditions to be further advised
-w1 = "Ясно"
-w2 = "Переменная облачность"
-w3 = "Снег"
-w4 = "Дождь"
-w41 = "Облачно, с дождем"
-w5 = "Переменная облачность с кратковременными"
-w6 = "Пасмурно"
+URL = "https://www.meteoblue.com/ru/%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0/%D1%81%D0%B5%D0%B3%D0%BE%D0%B4%D0%BD%D1%8F/shymbulak-mountain-resort_%d0%9a%d0%b0%d0%b7%d0%b0%d1%85%d1%81%d1%82%d0%b0%d0%bd_11496678"
+CHATBOT_ID = -1001693361742
+TEXT_STATUSES = {
+    # Соответствие статусов со страницы твоим статусам
+    "Ясно": "Погода ясная",
+    "Переменная облачность": "На чиме облачно",
+    "Снег": "Идёт снег",
+    "Дождь": "Идёт дождь",
+    "Дождем": "На чиме облачно с дождём",
+    "Пасмурно": "Тамп пасмурно"
+}
 
 #date modules
-import datetime
-today = datetime.date.today()
+#import datetime
+#today = datetime.date.today()
 
 #Create CSV command
-import csv
-header = ['weather','date']
-data = [weather,today]
+#import csv
+#header = ['weather','date']
+#data = [weather,today]
 with open('powderbot.csv', 'w', newline='', encoding='UTF8') as f:
     writer = csv.writer(f)
     writer.writerow(header)
     writer.writerow(data)
 
 #CSV append command
-with open('powderbot.csv', 'a+', newline='', encoding='UTF8') as f:
-    writer = csv.writer(f)
-    writer.writerow(data)
-    
+#with open('powderbot.csv', 'a+', newline='', encoding='UTF8') as f:
+ #   writer = csv.writer(f)
+  #  writer.writerow(data)
+
 #Hourly report function
-def alert(): 
-    URL = "https://www.meteoblue.com/ru/%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0/%D1%81%D0%B5%D0%B3%D0%BE%D0%B4%D0%BD%D1%8F/shymbulak-mountain-resort_%d0%9a%d0%b0%d0%b7%d0%b0%d1%85%d1%81%d1%82%d0%b0%d0%bd_11496678"
+def alert(chat_id, text_statuses, past_status, url): 
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"}
     page = requests.get(URL,headers=headers)
     soup1 = BeautifulSoup(page.content,"html.parser")
@@ -68,35 +70,33 @@ def alert():
         writer = csv.writer(f)
         writer.writerow(data)
     
-    if w4 in weather:
-         bot.send_message(chat_id=-1001693361742,text="Привет люди! На чиме идёт дождь, а значит зонтик не помешает...")
-    elif w41 in weather:
-         bot.send_message(chat_id=-1001693361742,text="На чиме облачно с дождем, одевайтесь теплее...")
-    elif w3 in weather:
-        bot.send_message(chat_id=-1001693361742,text="Ура! На чиме идёт снег!")
-    elif w5 in weather:
-        bot.send_message(chat_id=-1001693361742,text="На чиме кратковременные дожди, возьмите зонтик!")
-    elif w1 in weather:
-        bot.send_message(chat_id=-1001693361742,text="На чиме прояснилось")
-    elif w2 in weather:
-        bot.send_message(chat_id=-1001693361742,text="На чиме облачно")
-    elif w1 in weather:
-        bot.send_message(chat_id=-1001693361742,text="На чиме пасмурно")
-    else:
-        bot.send_message(chat_id=-1001693361742,text="Обнаружена неопознанная погода, добавьте в базу данных")
-         
-def hours():
+    for w_status, text in text_statuses.items():
+        if w_status in weather:
+            if w_status != past_status:
+                bot.send_message(chat_id=chat_id, text=text])
+    
+    return w_status
+    
+            
+def hours(chat_id, weather_status):
     hours = 0
     if w5 in weather:
         hours += 1
-        bot.send_message(chat_id=-1001693361742,text=f"дождь продолжается, уже льёт {hours} час")
+        bot.send_message(chat_id=chat_id,text=f"дождь продолжается, уже льёт {hours} час")
         if w5 in weather and hours in range(3,5):
-            bot.send_message(chat_id=-1001693361742,text=f"дождь продолжается {hours} часа")
+            bot.send_message(chat_id=chat_id,text=f"дождь продолжается {hours} часа")
             if w5 in weather and hours in range(6,100):
-                bot.send_message(chat_id=-1001693361742,text=f"дождь продолжается {hours} часов")
+                bot.send_message(chat_id=chat_id,text=f"дождь продолжается {hours} часов")
             else:
-                bot.send_message(chat_id=-1001693361742,text=f"дождь закончился, продолжался {hours} часов")
+                bot.send_message(chat_id=chat_id,text=f"дождь закончился, продолжался {hours} часов")
+                
+
+
+
 while(True):
-    alert()
-    hours()
-    time.sleep(3600)
+    past_weather_status = alert(
+        chat_id=CHATBOT_ID, 
+        text_statuses=TEXT_STATUSES, 
+        past_status=past_weather_status,
+        url=URL)
+    time.sleep(60)
