@@ -5,14 +5,15 @@ import time
 import datetime
 import telebot
 import csv
+import os
 
 
 # Constants
 #TOKEN = "5739207168:AAFNcX2_M_oJVQs-RcEaLGLd3L1dMuAPW8s"
-TOKEN = process.env.TOKEN
+TOKEN = os.environ.get('TOKEN')
 URL = "https://www.meteoblue.com/ru/%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0/%D1%81%D0%B5%D0%B3%D0%BE%D0%B4%D0%BD%D1%8F/shymbulak-mountain-resort_%d0%9a%d0%b0%d0%b7%d0%b0%d1%85%d1%81%d1%82%d0%b0%d0%bd_11496678"
 #CHATBOT_ID = -1001693361742
-CHATBOT_ID = process.env.CHATBOT_ID
+CHATBOT_ID = os.environ.get(CHATBOT_ID)
 TEXT_STATUSES = {
     "Ясно": "Погода ясная",
     "Переменная облачность": "На чиме облачно",
