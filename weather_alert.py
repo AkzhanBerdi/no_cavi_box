@@ -8,9 +8,9 @@ import csv
 
 
 # Constants
-TOKEN = "5739207168:AAFNcX2_M_oJVQs-RcEaLGLd3L1dMuAPW8s"
+#TOKEN = "5739207168:AAFNcX2_M_oJVQs-RcEaLGLd3L1dMuAPW8s"
 URL = "https://www.meteoblue.com/ru/%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0/%D1%81%D0%B5%D0%B3%D0%BE%D0%B4%D0%BD%D1%8F/shymbulak-mountain-resort_%d0%9a%d0%b0%d0%b7%d0%b0%d1%85%d1%81%d1%82%d0%b0%d0%bd_11496678"
-CHATBOT_ID = -1001693361742
+#CHATBOT_ID = -1001693361742
 TEXT_STATUSES = {
     "Ясно": "Погода ясная",
     "Переменная облачность": "На чиме облачно",
@@ -70,4 +70,4 @@ if __name__ == "__main__":
             text_statuses=TEXT_STATUSES, 
             past_status=weather,
             url=URL)
-        time.sleep(3600)
+        time.sleep(600)
