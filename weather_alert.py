@@ -39,7 +39,6 @@ def alert(chat_id, text_statuses, past_status, url):
         if w_status in weather:
             if w_status != past_status:
                 bot.send_message(chat_id=chat_id, text=text)
-            bot.send_message(chat_id=chat_id, text=text_statuses)
     return w_status
     
 
