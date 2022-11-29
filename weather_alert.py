@@ -43,7 +43,8 @@ def alert(chat_id, text_statuses, past_status, url):
         
         if w_status in weather:
             if w_status != past_status:
-                bot.send_message(chat_id=chat_id, text="Акжан, что-то произошло")
+                bot.send_message(chat_id=chat_id, text='Акжан, что-то произошло')
+                bot.send_message(chat_id=chat_id, text=text)
         return w_status
     
 
@@ -70,7 +71,7 @@ if __name__ == "__main__":
         writer.writerow(data)
 
     if weather == 'Облачность со снегопадом':
-        bot.send_message(chat_id=chat_id, text="Рад сообщить, что на чиме идёт снег!")
+        bot.send_message(chat_id=chat_id, text=text)
         
     while(True):
         weather = alert(
