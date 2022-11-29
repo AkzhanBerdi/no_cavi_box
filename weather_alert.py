@@ -17,12 +17,12 @@ TOKEN = os.environ.get('TOKEN')
 URL = "https://www.meteoblue.com/ru/%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0/%D1%81%D0%B5%D0%B3%D0%BE%D0%B4%D0%BD%D1%8F/shymbulak-mountain-resort_%d0%9a%d0%b0%d0%b7%d0%b0%d1%85%d1%81%d1%82%d0%b0%d0%bd_11496678"
 CHATBOT_ID = os.environ.get('CHATBOT_ID')
 TEXT_STATUSES = {
-    "Ясно": "Погода сказка - иди катайся! :)",
-    "Переменная облачность": "На чиме стало облачно :(",
-    "Снег": "Айоооо, на чиме идёт снег ^^)",
+    "Облачность со снегопадом": "Айоооо, на чиме идёт снег и немного облачно ^^)",
     "Дождь": "Пошёл дождь",
     "Дождем": "На чиме облачно с дождём",
-    "Пасмурно": "Там пасмурно"
+    "Пасмурно": "Там пасмурно",
+    "Ясно": "Погода сказка - иди катайся! :)",
+    "Переменная облачность": "На чиме стало облачно :("
 }
 
 
@@ -43,7 +43,7 @@ def alert(chat_id, text_statuses, past_status, url):
         
         if w_status in weather:
             if w_status != past_status:
-                bot.send_message(chat_id=chat_id, text=text)
+                bot.send_message(chat_id=chat_id, text="Акжан, что-то произошло")
         return w_status
     
 
@@ -69,10 +69,13 @@ if __name__ == "__main__":
         writer = csv.writer(f)
         writer.writerow(data)
 
+    if weather == 'Облачность со снегопадом':
+        bot.send_message(chat_id=chat_id, text="Рад сообщить, что на чиме идёт снег!")
+        
     while(True):
         weather = alert(
             chat_id=CHATBOT_ID, 
             text_statuses=TEXT_STATUSES, 
             past_status=weather,
             url=URL)
-        time.sleep(60)
+        time.sleep(120)
