@@ -71,7 +71,7 @@ if __name__ == "__main__":
         writer.writerow(data)
 
     if weather == 'Облачность со снегопадом':
-        bot.send_message(chat_id=chat_id, text=text)
+        bot.send_message(chat_id=chat_id, text='Рад сообщить, на чиме идёт снег!')
         
     while(True):
         weather = alert(
@@ -79,4 +79,4 @@ if __name__ == "__main__":
             text_statuses=TEXT_STATUSES, 
             past_status=weather,
             url=URL)
-        time.sleep(120)
+        time.sleep(300)
